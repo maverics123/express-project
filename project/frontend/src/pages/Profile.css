@@ -1,0 +1,29 @@
+.main_full_div {
+    display: flex;
+}
+
+.sidebar {
+    width: 15%;
+    background: aliceblue;
+    position: sticky;
+    height: 100vh;
+    padding: 20px 0px 5px 28px;
+}
+.right_side {
+    width: 85%;
+    padding: 7px 33px;
+}
+button.edit_profile {
+    display: block;
+    margin-top: 20px;
+    background: green;
+    color: white;
+    border: none;
+    min-width: 200px;
+    min-height: 39px;
+    font-size: 18px;
+    font-family: 'Roboto';
+}
+img.image_max {
+    max-height: 80px;
+}

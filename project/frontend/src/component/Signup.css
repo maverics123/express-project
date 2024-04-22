@@ -1,0 +1,72 @@
+h1.signup_heading {
+    color: white;
+    text-align: center;
+    margin-top: 0px !important;
+    font-size: 28px;
+}
+form.signup_form {
+    max-width: 506px;
+    margin: auto;
+    background: white;
+    border-radius: 6px;
+    box-shadow: -1px 1px 3px 1px #ddd2d2;
+    padding: 40px 50px 40px 50px;
+
+}
+.signup_div {
+    padding-top:20px;
+    height: 100vh;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqT68WVxBAYIkgSzHGBMyxlbUDhizEPODGTw&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+.form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 13px;
+}
+
+.form_group label {
+    font-size: 12px;
+    margin-bottom: 2px;
+    font-weight: 600;
+    
+}
+
+.form_group input {
+    background: #e8f0fe !important;
+    height: 26px;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+}
+.form_group select {
+    background: #e8f0fe !important;
+    min-height: 46px;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+}
+
+.form_group input:focus {
+    outline: none;
+}
+
+button.signup_btn {
+    max-width: 128px;
+    min-height: 34px;
+    background: #1b568e;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.error_message {
+    color: red;
+    font-size: 12px;
+    margin-top:2px;
+}
