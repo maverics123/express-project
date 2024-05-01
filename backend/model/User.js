@@ -29,6 +29,14 @@ const userSchema = mongoose.Schema({
     profileUrl:{
         type:String,
         
+    },
+    role: {
+        type: String,
+        enum: ["Admin", "User"] 
+    },
+    isSuperAdmin:{
+        type:Boolean,
+        required:true,
     }
 
 

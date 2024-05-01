@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
+    {console.log("i am in dashboard")}
      const navigate = useNavigate();
    const apiUrl = "http://localhost:4000/api/v1/signup"; 
     const [isVisible, setVisisble] = useState("password");
@@ -114,6 +115,7 @@ export default function Signup() {
            
              try{
                 formData.profileUrl="";
+               
                console.log(formData);
                const response = await fetch(apiUrl, {
                 method: 'POST',
@@ -137,6 +139,7 @@ export default function Signup() {
         
   return (
     <div className='signup_div'>
+   
     <h1 className='signup_heading'>Signup</h1>
     <form className='signup_form' onSubmit={handleSubmit}>
        <div className="form_group">

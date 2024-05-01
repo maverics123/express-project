@@ -2,14 +2,17 @@ import React, { useState, useContext } from 'react';
 import { AiFillEye } from "react-icons/ai";
 import '../component/Login.css';
 import { AuthContext } from '../App'; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
 export default function Login() {
     const { isLoggedIn, setisLoggedIn } = useContext(AuthContext); 
    const apiUrl = 'http://localhost:4000/api/v1/login'; 
    const [errorMessage1,setErrorMessage1] = useState("")
    const [errorMessage2,setErrorMessage2] = useState("")
+   const [rememberMe,setRememberMe] = useState(true);
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -89,30 +92,33 @@ export default function Login() {
                 if(responseData.success ==true){
                     setisLoggedIn(true);
                       let token = responseData.token;
+                      let user=responseData.role;
                       if(token != undefined){
                       localStorage.setItem('token', token);
-                      
-                      navigate("/dashboard")
+                      console.log(user);
+                     user=="User" ? navigate("/dashboard") : navigate("/Admindashboard")
                       }
                     
                       }
                 if (!response.ok) {
-                    // If response status is not in the range 200-299, it's an error
                     var errorMessage = responseData.message;
                     throw new Error(errorMessage);
                 }
             
                 
-                console.log(responseData); // Log the response data
+                console.log(responseData);
                 var message = responseData.message;
             
-                // Proceed with your logic here using responseData
+                
             
             } catch (error) {
-                // Handle errors
                 console.error('There was a problem with the fetch operation:',error);
-                // You may not have access to `message` here, so handle it accordingly
                 toast.error(errorMessage);
+                if(errorMessage=="password does not match"){
+                    console.log("i am in error state");
+                    setRememberMe(false);
+                }
+
             }
             
         
@@ -147,6 +153,11 @@ export default function Login() {
                 </div>
                 <div className="form_group">
                    <button className="login_btn" type="submit">Login</button>
+                 {  rememberMe ? <div></div> :<div>
+                    <p>Are you in trouble?</p>
+                    <NavLink to='/forgotPassword'><span>Forgot Password</span></NavLink>  
+                   </div>
+                    }                  
                 </div>
              </form>     
   

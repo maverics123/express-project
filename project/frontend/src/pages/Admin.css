@@ -1,0 +1,8 @@
+.single_user_div {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px  93px 13px 45px;
+    background: aliceblue;
+    margin-bottom: 20px;
+    width: 80%;
+}
