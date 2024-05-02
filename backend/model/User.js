@@ -37,9 +37,11 @@ const userSchema = mongoose.Schema({
     isSuperAdmin:{
         type:Boolean,
         required:true,
-    }
-
-
+    },
+    projects: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project',
+    }],
 })
 
 module.exports = mongoose.model("user",userSchema);

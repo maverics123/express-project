@@ -17,6 +17,8 @@ import Checker from './component/Checker';
 import Adduser from './pages/Adduser';
 import Addadmin from './pages/Addadmin';
 import { Navigate } from 'react-router-dom';
+import Addproject from './pages/Addproject';
+import Projects from './pages/Projects';
 
 
 // Create context
@@ -52,12 +54,14 @@ function App() {
             if (response.ok) {
                
             } else {
-                
+           
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 
             }
         } catch (err) {
             console.error('Error fetching data:', err);
+            localStorage.removeItem("token");
+            setisLoggedIn(false);
         }
     };
 
@@ -102,6 +106,32 @@ function App() {
               isLoggedIn ? (
                 userRole == 'Admin' && isSuperAdmin==true ? (
                   <Addadmin/>
+                ) : (
+                  <Navigate to='/dashboard' />
+                )
+              ) : (
+                <Navigate to='/login' />
+              )
+            }
+            />
+             <Route path='/addproject' 
+            element={
+              isLoggedIn ? (
+                userRole == 'Admin' ? (
+                  <Addproject/>
+                ) : (
+                  <Navigate to='/dashboard' />
+                )
+              ) : (
+                <Navigate to='/login' />
+              )
+            }
+            />
+              <Route path='/projects' 
+            element={
+              isLoggedIn ? (
+                userRole == 'Admin' ? (
+                  <Projects/>
                 ) : (
                   <Navigate to='/dashboard' />
                 )

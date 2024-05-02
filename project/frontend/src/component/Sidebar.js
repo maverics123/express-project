@@ -39,6 +39,8 @@ export default function Sidebar() {
           <ul className='sidebar_ul'>
              <li> <Link to="/adduser">Add user</Link></li>
              {isSuperAdmin ?  <li> <Link to="/addadmin">Add Admin</Link></li> : null}
+             <li><Link to="/addproject">Add Project</Link></li>
+             <li><Link to="/projects">Projects</Link></li>
           </ul>
 
 

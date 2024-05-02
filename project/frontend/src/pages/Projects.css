@@ -1,0 +1,13 @@
+.single_project_card {
+    background: antiquewhite;
+    padding: 20px;
+    border-radius: 11px;
+}
+
+ul.all_projects {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    list-style: none;
+    padding-right: 33px;
+}
